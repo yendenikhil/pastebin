@@ -10,20 +10,24 @@ import org.springframework.context.annotation.Bean;
 @SpringBootApplication
 public class App {
 
-	public static void main(String[] args) {
-		SpringApplication.run(App.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(App.class, args);
+    }
 
-	public CommandLineRunner testJPA(BinRepository repo) {
-		return args -> {
-			BinEntity e = new BinEntity();
-			e.setContent("test content");
-			e.setTitle("title");
-			repo.save(e);
-			repo.findAll().forEach(System.out::println);
-		};
+    @Bean
+    public CommandLineRunner testJPA(BinRepository repo) {
+        return args -> {
+            BinEntity e = new BinEntity();
+            e.setContent("test content");
+            e.setTitle("aa");
+            repo.save(e);
+            e = new BinEntity();
+            e.setTitle("bb");
+            repo.save(e);
+            repo.findAll().forEach(System.out::println);
+        };
 
-	}
+    }
 
 }
 

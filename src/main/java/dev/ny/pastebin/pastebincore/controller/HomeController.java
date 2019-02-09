@@ -11,8 +11,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributesModelMap;
 
-import javax.websocket.server.PathParam;
-
 @Controller
 public class HomeController {
     private static final String BIN = "bin";

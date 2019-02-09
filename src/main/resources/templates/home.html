@@ -3,13 +3,31 @@
 <head>
     <meta charset="UTF-8"/>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" th:href="@{/css/common.css}"/>
+    <link rel="stylesheet" th:href="@{/css/home.css}"/>
     <title>Home</title>
 </head>
 <body>
-<form action="#" method="post" th:action="@{/}" th:object="${bin}">
-    <input type="text" th:field="*{title}">
-    <input type="text" th:field="*{content}">
-    <button type="submit">Submit</button>
-</form>
+<header>
+<nav class="header-nav">
+    <ul>
+        <li><a href="#" th:href="@{/}">Home</a></li>
+        <li><a href="#" th:href="@{/list}">List</a></li>
+    </ul>
+</nav>
+</header>
+<section>
+    <form action="#" method="post" th:action="@{/}" th:object="${bin}">
+        <div class="form-field">
+            <input type="text" th:field="*{title}">
+        </div>
+        <div class="form-field">
+            <input type="text" th:field="*{content}">
+        </div>
+        <div class="form-field">
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+</section>
 </body>
 </html>
