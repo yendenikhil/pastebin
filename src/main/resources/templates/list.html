@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" th:href="@{/css/common.css}"/>
+    <title>List</title>
+</head>
+<body>
+<header>
+    <nav class="header-nav">
+        <ul>
+            <li><a href="#" th:href="@{/}">Home</a></li>
+            <li><a href="#" th:href="@{/list}">List</a></li>
+        </ul>
+    </nav>
+</header>
+<section>
+    <div id="search">
+        <form action="#">
+            <input type="text" v-model="message">
+            <button type="submit" v-on:click="findIt">Search</button>
+        </form>
+        {{ data }}
+    </div>
+</section>
+<script th:src="@{/js/vue.js}"></script>
+<script th:src="@{/js/list.js}"></script>
+</body>
+</html>
