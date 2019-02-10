@@ -4,30 +4,55 @@
     <meta charset="UTF-8"/>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link rel="stylesheet" th:href="@{/css/common.css}"/>
-    <link rel="stylesheet" th:href="@{/css/home.css}"/>
+    <link rel="stylesheet" th:href="@{/css/materialize.css}"/>
     <title>Home</title>
 </head>
 <body>
 <header>
-<nav class="header-nav">
-    <ul>
-        <li><a href="#" th:href="@{/}">Home</a></li>
-        <li><a href="#" th:href="@{/list}">List</a></li>
-    </ul>
-</nav>
+    <nav class="header-nav">
+        <div class="nav-wrapper purple darken-3">
+            <a href="#" th:href="@{/}" class="brand-logo">Pastebin</a>
+            <ul class="right hide-on-med-and-down blue-text">
+                <li><a href="#" th:href="@{/list}">List</a></li>
+                <li><a href="#" th:href="@{/}">About</a></li>
+            </ul>
+        </div>
+    </nav>
 </header>
-<section>
-    <form action="#" method="post" th:action="@{/}" th:object="${bin}">
-        <div class="form-field">
-            <input type="text" th:field="*{title}">
-        </div>
-        <div class="form-field">
-            <input type="text" th:field="*{content}">
-        </div>
-        <div class="form-field">
-            <button type="submit">Submit</button>
-        </div>
-    </form>
-</section>
+<main>
+    <div class="container">
+        <section>
+            <div class="row">
+                <div class="col s12">
+                    <div class="card z-depth-4">
+                        <form action="#" method="post" th:action="@{/}" th:object="${bin}" class="card-content">
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input type="text" th:field="*{title}" id="title"
+                                           placeholder="Give me some good title..." autofocus>
+                                    <label for="title">Title</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <textarea th:field="*{content}" id="content"
+                                              class="materialize-textarea"></textarea>
+                                    <label for="content">Content...</label>
+                                </div>
+                            </div>
+                            <div class="form-field">
+                                <button type="submit" class="btn waves-effect waves-light purple darken-3">Submit
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</main>
+<script th:src="@{/js/vue.js}"></script>
+<script th:src="@{/js/materialize.js}"></script>
+<script th:src="@{/js/home.js}"></script>
 </body>
 </html>

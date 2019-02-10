@@ -27,3 +27,6 @@ target/
 *.db
 *.log
 *.iml
+
+# OSX ignore files
+.DS_Store

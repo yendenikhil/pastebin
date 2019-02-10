@@ -17,10 +17,13 @@ public class App {
     @Bean
     public CommandLineRunner testJPA(BinRepository repo) {
         return args -> {
-            BinEntity e = new BinEntity();
-            e.setContent("test content");
-            e.setTitle("aa");
-            repo.save(e);
+            BinEntity e;
+            for (int i = 0; i < 20; i++) {
+                e = new BinEntity();
+                e.setContent("test content");
+                e.setTitle("aa" + i);
+                repo.save(e);
+            }
             e = new BinEntity();
             e.setTitle("bb");
             repo.save(e);
