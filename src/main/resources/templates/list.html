@@ -13,9 +13,9 @@
     <nav class="header-nav">
         <div class="nav-wrapper purple darken-3">
             <a href="#" th:href="@{/}" class="brand-logo">Pastebin</a>
-            <ul class="right hide-on-med-and-down">
+            <ul class="right blue-text">
                 <li><a href="#" th:href="@{/list}">List</a></li>
-                <li><a href="#" th:href="@{/}">About</a></li>
+                <li><a href="#" th:href="@{/}">Home</a></li>
             </ul>
         </div>
     </nav>
@@ -57,6 +57,17 @@
         </div>
     </div>
 </main>
+<footer class="page-footer purple darken-3">
+    <div class="container">
+        <div class="row">
+            <div class="col s8">
+                You can see the source <a class="purple-text text-lighten-3"
+                                          href="https://github.com/yendenikhil/pastebin">here</a>.
+            </div>
+        </div>
+
+    </div>
+</footer>
 <script th:src="@{/js/vue.js}"></script>
 <script th:src="@{/js/materialize.js}"></script>
 <script th:src="@{/js/list.js}"></script>

@@ -13,24 +13,5 @@ public class App {
     public static void main(String[] args) {
         SpringApplication.run(App.class, args);
     }
-
-    @Bean
-    public CommandLineRunner testJPA(BinRepository repo) {
-        return args -> {
-            BinEntity e;
-            for (int i = 0; i < 20; i++) {
-                e = new BinEntity();
-                e.setContent("test content");
-                e.setTitle("aa" + i);
-                repo.save(e);
-            }
-            e = new BinEntity();
-            e.setTitle("bb");
-            repo.save(e);
-            repo.findAll().forEach(System.out::println);
-        };
-
-    }
-
 }
 
