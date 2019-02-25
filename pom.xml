@@ -5,7 +5,6 @@
     <packaging>pom</packaging>
     <modules>
         <module>pastebin-core</module>
-        <module>pastebin-web</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
