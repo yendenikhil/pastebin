@@ -1,8 +1,7 @@
-package dev.ny.pastebin.pastebincore.bin;
+package dev.ny.pastebin.bin;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.Value;
 
 import java.time.LocalDateTime;
 

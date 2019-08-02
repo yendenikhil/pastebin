@@ -1,4 +1,4 @@
-package dev.ny.pastebin.pastebincore.bin;
+package dev.ny.pastebin.bin;
 
 
 import lombok.extern.slf4j.Slf4j;
@@ -21,7 +21,7 @@ public class BinApi {
 
 
     @GetMapping
-    public List<BinLite> getSearchResults(@RequestParam(value = "q", defaultValue = "") final String title,
+    public List<Bin> getSearchResults(@RequestParam(value = "q", defaultValue = "") final String title,
                                           @RequestParam(value = "pageNum", defaultValue = ZERO) final int pageNum,
                                           @RequestParam(value = "pageSize", defaultValue = TEN) final int pageSize) {
         log.debug("GET: /: query={}, pageNum:{}, pageSize:{}", title, pageNum, pageSize);

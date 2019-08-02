@@ -1,7 +1,7 @@
-package dev.ny.pastebin.pastebincore;
+package dev.ny.pastebin;
 
-import dev.ny.pastebin.pastebincore.bin.Bin;
-import dev.ny.pastebin.pastebincore.bin.BinRepository;
+import dev.ny.pastebin.bin.Bin;
+import dev.ny.pastebin.bin.BinRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
