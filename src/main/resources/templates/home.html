@@ -21,8 +21,7 @@
         <h2>Bins</h2>
         <button type="button" v-on:click="prevPage">prev</button>
         <button type="button" v-on:click="nextPage">next</button>
-        <input type="text" placeholder="anything specific?" v-model="q">
-        <button type="button" v-on:click="search">search</button>
+        <input type="text" placeholder="anything specific?" v-model="q" v-on:keyup.enter="search">
         <table>
             <tr>
                 <th>title</th>

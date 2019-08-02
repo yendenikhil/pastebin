@@ -2,22 +2,47 @@ const showBins = new Vue({
     el: "#show-bins",
     data: {
         q: "",
-        bins: []
+        bins: [],
+        pageNum: 0
     },
     methods: {
         prevPage: function() {
-            console.log("prev page called");
+        if (this.pageNum > 0) {
+                this.pageNum -= 1;
+                this.getBins();
+            }
         },
         nextPage: function() {
-            console.log("next page called");
+            this.pageNum += 1;
+            this.getBins();
         },
         search: function() {
-            console.log("search called");
+        // reset page number for new query
+        this.pageNum = 0;
+            this.getBins();
+        },
+        getBins: function() {
+            getData("/api/bins?pageNum=" + this.pageNum + "&q=" + this.q)
+                .then(resp => {
+                    // check whether empty results is due to missing matches.
+                    if (this.pageNum > 0) {
+                        // only update if there is something to update.
+                        if (resp.length > 0) {
+                            this.bins = resp;
+                        } else {
+
+                            // this means we reached to empty results and page number should be less by one.
+                                this.pageNum -= 1;
+                        }
+                    } else {
+                        this.bins = resp;
+                    }
+
+                });
         }
     },
     created: function() {
-        getData("/api/bins")
-        .then(resp => this.bins = resp );
+        this.getBins();
     }
 
 });
