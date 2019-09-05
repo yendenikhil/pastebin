@@ -6,22 +6,22 @@ const showBins = new Vue({
         pageNum: 0
     },
     methods: {
-        prevPage: function() {
-        if (this.pageNum > 0) {
+        prevPage: function () {
+            if (this.pageNum > 0) {
                 this.pageNum -= 1;
                 this.getBins();
             }
         },
-        nextPage: function() {
+        nextPage: function () {
             this.pageNum += 1;
             this.getBins();
         },
-        search: function() {
-        // reset page number for new query
-        this.pageNum = 0;
+        search: function () {
+            // reset page number for new query
+            this.pageNum = 0;
             this.getBins();
         },
-        getBins: function() {
+        getBins: function () {
             getData("/api/bins?pageNum=" + this.pageNum + "&q=" + this.q)
                 .then(resp => {
                     // check whether empty results is due to missing matches.
@@ -32,7 +32,7 @@ const showBins = new Vue({
                         } else {
 
                             // this means we reached to empty results and page number should be less by one.
-                                this.pageNum -= 1;
+                            this.pageNum -= 1;
                         }
                     } else {
                         this.bins = resp;
@@ -41,7 +41,7 @@ const showBins = new Vue({
                 });
         }
     },
-    created: function() {
+    created: function () {
         this.getBins();
     }
 
@@ -58,13 +58,16 @@ const createBin = new Vue({
         createBin: function () {
             console.log(JSON.stringify(this.bin));
             postData("/api/bins", JSON.stringify(this.bin))
-            .then(resp => console.log(resp) );
+                .then(resp => {
+                    console.log(resp);
+                    showBins.getBins();
+                });
         }
     }
 });
 
-function postData(url, payload={}) {
-    return fetch(url,{
+function postData(url, payload = {}) {
+    return fetch(url, {
         method: 'POST',
         cache: 'no-cache',
         headers: {
@@ -73,11 +76,11 @@ function postData(url, payload={}) {
         redirect: "follow",
         referrer: "no-referrer",
         body: payload
-    }).then(resp => resp.json() );
+    }).then(resp => resp.json());
 }
 
 function getData(url) {
-    return fetch(url,{
+    return fetch(url, {
         method: 'GET',
         cache: 'no-cache',
         headers: {
@@ -85,5 +88,5 @@ function getData(url) {
         },
         redirect: "follow",
         referrer: "no-referrer"
-    }).then(resp => resp.json() );
+    }).then(resp => resp.json());
 }
