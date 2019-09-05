@@ -52,7 +52,8 @@ const createBin = new Vue({
         bin: {
             title: "",
             content: ""
-        }
+        },
+        postMessage: ""
     },
     methods: {
         createBin: function () {
@@ -60,6 +61,7 @@ const createBin = new Vue({
             postData("/api/bins", JSON.stringify(this.bin))
                 .then(resp => {
                     console.log(resp);
+                    this.postMessage = JSON.stringify(resp);
                     showBins.getBins();
                 });
         }

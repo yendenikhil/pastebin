@@ -15,6 +15,7 @@
     <section id="create-bin" v-cloak>
         <input type="text" placeholder="title" v-model="bin.title">
         <textarea placeholder="content" v-model="bin.content"></textarea>
+        <span>{{ postMessage }}</span>
         <button type="submit" v-on:click="createBin">Create</button>
     </section>
     <section id="show-bins" v-cloak>
