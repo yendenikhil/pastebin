@@ -10,13 +10,19 @@
     <title>Pastebin</title>
 </head>
 <body>
-<header></header>
+<header>
+    <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">List</a></li>
+    </ul>
+</header>
 <main>
     <section id="create-bin" v-cloak>
-        <input type="text" placeholder="title" v-model="bin.title">
-        <textarea placeholder="content" v-model="bin.content"></textarea>
-        <span>{{ postMessage }}</span>
-        <button type="submit" v-on:click="createBin">Create</button>
+        <input type="text" placeholder="title" v-model="bin.title" id="bin-title">
+        <textarea placeholder="content" v-model="bin.content" id="bin-content"></textarea>
+        <button type="submit" v-on:click="createBin" id="createBin">Create</button>
+        <button type="button" v-on:click="clearBin" id="clearBin">Clear</button>
+        <span id="binMessage">{{ postMessage }}</span>
     </section>
     <section id="show-bins" v-cloak>
         <h2>Bins</h2>

@@ -1,18 +1,78 @@
+/* Global settings */
 body {
     font-family: 'Open Sans', sans-serif;
     font-size: 18px;
     padding: 0;
     margin: 0;
+    max-width: 900px;
 }
+
+/* Hide the vue component till it loads */
 [v-cloak] {
     display: none;
 }
 
+/* Table formatting */
 table {
     border-collapse: collapse;
 }
-
 td, th {
     padding: 5px 5px;
     border: 1px solid #666;
+}
+/* Prepare the menu */
+header ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  background-color: #ddd;
+  overflow: hidden;
+}
+header li {
+    float: left;
+}
+header li a {
+    display: block;
+    padding: 8px;
+    text-align: center;
+    text-decoration: none;
+    background-color: #ccc;
+    color: #000;
+}
+header li a:hover {
+    background-color: #aaa;
+}
+
+/* create bin */
+#create-bin {
+    padding: 1rem;
+    border: 1px solid black;
+    display: grid;
+    grid-row-gap: 0.5rem;
+    grid-auto-rows: 2.5rem auto 2.5rem 2.5rem;
+    height: 400px;
+    min-width: 200px;
+
+}
+#bin-title {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1rem;
+    padding: 0.5rem;
+    outline: none;
+
+}
+#bin-content {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1rem;
+    padding: 0.5rem;
+    outline: none;
+}
+#createBin, #clearBin {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1rem;
+    padding: 0.5rem;
+}
+#binMessage {
+    background-color: #ddd;
+    padding: 0.5rem;
 }

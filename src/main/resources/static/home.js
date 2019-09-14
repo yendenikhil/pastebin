@@ -64,6 +64,11 @@ const createBin = new Vue({
                     this.postMessage = JSON.stringify(resp);
                     showBins.getBins();
                 });
+        },
+        clearBin: function() {
+            this.bin.title = "";
+            this.bin.content = "";
+            this.postMessage = "";
         }
     }
 });
