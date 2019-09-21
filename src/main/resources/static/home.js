@@ -43,6 +43,8 @@ const showBins = new Vue({
         show: function(id) {
             createBin.id = id;
             createBin.showBin();
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
         }
     },
     created: function () {
