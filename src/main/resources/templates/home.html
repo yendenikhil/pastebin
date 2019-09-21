@@ -10,34 +10,27 @@
     <title>Pastebin</title>
 </head>
 <body>
-<header>
-    <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">List</a></li>
-    </ul>
-</header>
 <main>
     <section id="create-bin" v-cloak>
-        <input type="text" placeholder="title" v-model="bin.title" id="bin-title">
+        <input type="text" placeholder="title" v-model="bin.title" id="bin-title" class="input" autofocus>
         <textarea placeholder="content" v-model="bin.content" id="bin-content"></textarea>
-        <button type="submit" v-on:click="createBin" id="createBin">Create</button>
-        <button type="button" v-on:click="clearBin" id="clearBin">Clear</button>
+        <button type="submit" v-on:click="createBin" id="createBinB">Create</button>
+        <button type="button" v-on:click="clearBin" id="clearBinB">Clear</button>
         <span id="binMessage">{{ postMessage }}</span>
     </section>
     <section id="show-bins" v-cloak>
-        <h2>Bins</h2>
-        <button type="button" v-on:click="prevPage">prev</button>
-        <button type="button" v-on:click="nextPage">next</button>
-        <input type="text" placeholder="anything specific?" v-model="q" v-on:keyup.enter="search">
+        <div id="show-nav">
+            <button type="button" v-on:click="prevPage" class="pagination">prev</button>
+            <button type="button" v-on:click="nextPage" class="pagination">next</button>
+            <input type="text" placeholder="anything specific?" v-model="q" v-on:keyup.enter="search" class="input">
+        </div>
         <table>
             <tr>
                 <th>title</th>
-                <th>content</th>
                 <th>date</th>
             </tr>
-            <tr v-for="bin in bins">
+            <tr v-for="bin in bins" v-on:click="show(bin.id)">
                 <td>{{ bin.title }}</td>
-                <td>{{ bin.content }}</td>
                 <td>{{ bin.createdAt }}</td>
             </tr>
         </table>

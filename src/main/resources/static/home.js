@@ -39,6 +39,10 @@ const showBins = new Vue({
                     }
 
                 });
+        },
+        show: function(id) {
+            createBin.id = id;
+            createBin.showBin();
         }
     },
     created: function () {
@@ -53,7 +57,8 @@ const createBin = new Vue({
             title: "",
             content: ""
         },
-        postMessage: ""
+        postMessage: "",
+        id: ""
     },
     methods: {
         createBin: function () {
@@ -61,6 +66,8 @@ const createBin = new Vue({
             postData("/api/bins", JSON.stringify(this.bin))
                 .then(resp => {
                     console.log(resp);
+                    delete resp.createdAt;
+                    delete resp.content;
                     this.postMessage = JSON.stringify(resp);
                     showBins.getBins();
                 });
@@ -69,6 +76,14 @@ const createBin = new Vue({
             this.bin.title = "";
             this.bin.content = "";
             this.postMessage = "";
+        },
+        showBin: function(){
+            getData("/api/bins/" + this.id)
+            .then(resp => {
+                this.bin.title = resp.title;
+                this.bin.content = resp.content;
+                this.postMessage = "id: " + resp.id;
+            });
         }
     }
 });

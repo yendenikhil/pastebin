@@ -15,10 +15,15 @@ body {
 /* Table formatting */
 table {
     border-collapse: collapse;
+    width: 100%;
 }
 td, th {
     padding: 5px 5px;
-    border: 1px solid #666;
+    border: 1px solid #ddd;
+}
+
+td {
+    cursor: pointer;
 }
 /* Prepare the menu */
 header ul {
@@ -42,11 +47,14 @@ header li a {
 header li a:hover {
     background-color: #aaa;
 }
-
+/* main */
+main {
+    display: grid;
+    grid-row-gap: 0.5rem;
+    padding: 1rem;
+}
 /* create bin */
 #create-bin {
-    padding: 1rem;
-    border: 1px solid black;
     display: grid;
     grid-row-gap: 0.5rem;
     grid-auto-rows: 2.5rem auto 2.5rem 2.5rem;
@@ -54,25 +62,48 @@ header li a:hover {
     min-width: 200px;
 
 }
-#bin-title {
+
+::placeholder {
+    color: #ccc;
+}
+#bin-title, .input {
     font-family: 'Open Sans', sans-serif;
     font-size: 1rem;
     padding: 0.5rem;
     outline: none;
-
+    border: none;
+    border-bottom: 1px solid #ddd;
 }
 #bin-content {
     font-family: 'Open Sans', sans-serif;
     font-size: 1rem;
     padding: 0.5rem;
     outline: none;
+    border: 1px solid #ddd;
 }
-#createBin, #clearBin {
+#createBinB, #clearBinB, .pagination {
     font-family: 'Open Sans', sans-serif;
     font-size: 1rem;
     padding: 0.5rem;
+    outline: none;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    color: #666;
 }
+#createBinB:hover, #clearBinB:hover, .pagination:hover {
+    color: #000;
+    border: 1px solid #000;
+}
+
 #binMessage {
-    background-color: #ddd;
     padding: 0.5rem;
+    color: #999;
+}
+
+/* show-bins */
+#show-nav {
+    padding: 5px 0;
+    display: grid;
+    grid-column-gap: 0.5rem;
+    grid-template-columns: auto auto auto;
 }
