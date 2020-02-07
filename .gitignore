@@ -1,3 +1,8 @@
+# node 
+node_modules/
+debug.log
+
+
 # Compiled class file
 *.class
 

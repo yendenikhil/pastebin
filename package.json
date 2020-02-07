@@ -1,0 +1,32 @@
+{
+  "name": "pastebin",
+  "version": "1.0.0",
+  "description": "pastebin implementation by me",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "npx nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yendenikhil/pastebin.git"
+  },
+  "keywords": [
+    "pastebin",
+    "learn",
+    "play"
+  ],
+  "author": "Nikhil Yekhe",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yendenikhil/pastebin/issues"
+  },
+  "homepage": "https://github.com/yendenikhil/pastebin#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  }
+}
