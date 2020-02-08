@@ -1,0 +1,33 @@
+* {
+  font-family: 'Courier Prime', monospace;
+  outline: none;
+  box-sizing: border-box;
+}
+html {
+  font-size: 120%;
+}
+body {
+  background-color: #fff;
+  color: #333;
+  font-size: 1rem;
+  padding: 0;
+  margin: 0;
+}
+input {
+  color: #66d;
+  line-height: 1.6rem;
+  font-size: 1rem;
+  padding: 5px;
+  margin: 0;
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #666;
+}
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 5px 0;
+}
+li {
+  padding: 5px;
+}
